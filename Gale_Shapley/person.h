@@ -4,6 +4,7 @@
 #include <vector>
 #include <iterator>
 
+using namespace std;
 class Person{
   protected:
     char ID;
@@ -19,7 +20,7 @@ class Person{
     void set_marriage(bool value);
     void set_priorities(unsigned int people);
     char get_gender(); 
-    std::vector <char> get_priorities();
+    vector <char> get_priorities();
     bool  get_mariage();
     char get_id();
 };

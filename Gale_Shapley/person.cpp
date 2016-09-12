@@ -1,5 +1,4 @@
 #include "person.h"
-using namespace std;
 
 //class constructors
 Person::Person(char ID, char gender){
@@ -39,6 +38,6 @@ void Person::set_priorities(unsigned int people){
   }
   this->priority_check=this->priority.begin();
 }
-std::vector<char> Person::get_priorities(){
+vector<char> Person::get_priorities(){
   return this->priority;
 }
