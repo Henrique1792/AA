@@ -31,10 +31,10 @@ char Person::get_gender(){
 void Person::set_priorities(unsigned int people){
   char reading;
   for (this->priority_check=this->priority.begin();
-  this->priority.size()<people;
-  this->priority_check++){
-      cin>>reading;
-      this->priority.push_back(reading);
+       this->priority.size()<people;
+       this->priority_check++){
+         cin>>reading;
+         this->priority.push_back(reading);
   }
   this->priority_check=this->priority.begin();
 }

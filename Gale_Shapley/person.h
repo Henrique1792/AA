@@ -15,14 +15,17 @@ class Person{
     char gender;
  
   public:
+    //constructor and destructor
     Person(char ID, char gender);
     ~Person();
+   //setters
     void set_marriage(bool value);
     void set_priorities(unsigned int people);
+   //getters
     char get_gender(); 
     vector <char> get_priorities();
-    bool  get_mariage();
     char get_id();
+    bool  get_mariage();
 };
 
 
