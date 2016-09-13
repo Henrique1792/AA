@@ -34,7 +34,7 @@ void Person::set_priorities(unsigned int people){
        this->priority.size()<people;
        this->priority_check++){
          cin>>reading;
-         this->priority.push_back(reading);
+         if(reading != '\n') this->priority.push_back(reading);
   }
   this->priority_check=this->priority.begin();
 }

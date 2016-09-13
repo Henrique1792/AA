@@ -15,7 +15,7 @@ class Person{
     char gender;
  
   public:
-    //constructor and destructor
+   //constructor and destructor
     Person(char ID, char gender);
     ~Person();
    //setters
