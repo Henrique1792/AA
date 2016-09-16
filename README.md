@@ -6,3 +6,5 @@
 
 
 Exercises made during Advanced Algorithms lectures.
+
+If you find an issue, please send an e-mail to freitash1792@gmail.com
