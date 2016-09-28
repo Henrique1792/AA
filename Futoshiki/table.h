@@ -14,18 +14,25 @@ using namespace std;
 
 /*
  * remember: 
- *
+ * x<y - ALWAYS
  *
  * */
 typedef struct Restriction{
   int x1, y1, x2, y2;
 }Restriction;
 
+Restriction *create_Restriction();
+void free_restriction(Restriction **tgt);
+void print_rst(Restriction *tgt);
+
 class Table{
   protected:
-    int nRestrictions;
+    int nRestrictions,size;
     vector <Restriction> *Restricted;
-    vector< vector<int> > board;
+    int **board; 
+
+
+  //iterators
     vector<Restriction>::iterator Restriction_check;
 
   public:
@@ -34,9 +41,13 @@ class Table{
     ~Table();
 
   //Setters
-    
+    void set_table();
+    void set_restrictions();
 
 
+  //Printers
+  void print_table();
+  void print_restrictions();
 };
 
 
