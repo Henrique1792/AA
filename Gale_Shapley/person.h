@@ -9,8 +9,8 @@ class Person{
   protected:
     char ID;
     bool Married;
-    std::vector <char> priority;
-    std::vector<char>::iterator  priority_check;
+    vector <char> priority;
+    vector<char>::iterator  priority_check;
     char Married_With;
     char gender;
  
