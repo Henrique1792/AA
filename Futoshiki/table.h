@@ -1,11 +1,11 @@
 #ifndef TABLE_H_
 #define TABLE_H_
 
-#define SIZE_RESTRICTION 2
 
 #include <iostream>
 #include <vector>
 
+#define SIZE_RESTRICTION 2
 
 
 using namespace std;

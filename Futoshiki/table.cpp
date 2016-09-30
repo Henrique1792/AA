@@ -22,17 +22,37 @@ Table::Table(int size,int nRestrictions){
   this->size=size;
   int i,j;
 
+  //Building initial matrix
   this->board=(int **)malloc(size*sizeof(int *));
     for(j=0;j<size;j++){
       this->board[j]=(int *)malloc(size*sizeof(int));
     }
-
-
   for(i=0;i<size;i++){
     for(j=0;j<size;j++){
       this->board[i][j]=DEFAULT;
     }
   }
+
+  //set restrictions.
+  
+  for(this->Restriction_check=this->Restricted->begin();
+      this->Restricted->size()<nRestrictions;
+      this->Restriction_check++){
+ 
+    /*
+     * Things to pay attention: Allocate each <Restriction>
+     * values and set them to 
+     *
+     *
+     *
+     *
+     * */
+
+  
+  
+  }
+
+
 }
 
 
