@@ -1,55 +1,30 @@
 #ifndef TABLE_H_
 #define TABLE_H_
 
+#include <stdlib.h>
+#include <stdio.h>
 
-#include <iostream>
-#include <vector>
-
-#define SIZE_RESTRICTION 2
-
-
-using namespace std;
+#define SUCCESS 1
+#define FAIL 0
+#define DEFAULT -1
 
 
+typedef struct INEQUATION{
+  int x1, x2; //point A
+  int y1, y2; //point B
+}INEQUATION;
 
-/*
- * remember: 
- * x<y - ALWAYS
- *
- * */
-typedef struct Restriction{
-  int x1, y1, x2, y2;
-}Restriction;
+INEQUATION *create_inq();
+int set_inq_values(INEQUATION *tgt,int x1, int x2, int y1, int y2, int size);
+void free_inq(INEQUATION **tgt);
 
-Restriction *create_Restriction();
-void free_restriction(Restriction **tgt);
-void print_rst(Restriction *tgt);
+typedef struct GAME{
+  int **table;
+  int nInequations;
+  INEQUATION *inequations;
+}GAME;
 
-class Table{
-  protected:
-    int nRestrictions,size;
-    vector <Restriction> *Restricted;
-    int **board; 
-
-
-  //iterators
-    vector<Restriction>::iterator Restriction_check;
-
-  public:
-  //Constructor and Destructor
-    Table(int size,int nRestrictions);
-    ~Table();
-
-  //Setters
-    void set_table();
-    void set_restrictions();
-
-
-  //Printers
-  void print_table();
-  void print_restrictions();
-};
-
-
+GAME *create_game(int size,int inequations);
+void free_game(GAME **tgt);
 
 #endif

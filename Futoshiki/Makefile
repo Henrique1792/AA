@@ -1,4 +1,4 @@
-SRCS= table.cpp 
+SRCS= table.c 
 OBJS= $(SRCS:.cpp=.o)
 
 
