@@ -1,5 +1,5 @@
 SRCS= table.c 
-OBJS= $(SRCS:.cpp=.o)
+OBJS= $(SRCS:.c=.o)
 
 
 all: teste
@@ -12,7 +12,7 @@ $(OBJS): %.o : %.h
 
 
 teste:$(OBJS)
-	g++ -g -Wall $^ main.cpp -o $@
+	g++ -g -Wall $^ main.c -o $@
 
 
 
