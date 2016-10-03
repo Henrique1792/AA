@@ -6,7 +6,7 @@ all: teste
 
 $(OBJS): %.o : %.h
 
-.cpp.o:
+.c.o:
 	gcc -g -Wall -c $< -o $@
 
 

@@ -5,7 +5,7 @@
 
 INEQUATION *create_inq(){
   INEQUATION *rt=(INEQUATION *)malloc(sizeof(INEQUATION));
-  rt==NULL ? NULL : rt;
+  return rt==NULL ?  NULL : rt;
 }
 
 int set_inq_values(INEQUATION *tgt, int x1, int x2, int y1, int y2, int size){
@@ -26,9 +26,6 @@ void free_inq(INEQUATION **tgt){
   free(*tgt);
 }
 
-
-
-
 GAME *create_game(int size,int inequations){
   if(size <0 || size <4||size>9 || inequations <=0) return NULL;
   GAME *rt=(GAME *)malloc(sizeof(GAME));
@@ -42,8 +39,11 @@ GAME *create_game(int size,int inequations){
       rt->table[i][j]=DEFAULT;
   }
   
-  
-  
+  rt->possible_values=(int *)malloc(size*sizeof(int));
+ 
+  for(i=0;i<size;i++) rt->possible_values[i]=i+1;
+
+
   rt->inequations=(INEQUATION *)malloc(inequations*sizeof(INEQUATION));
   rt->nInequations=inequations; 
   for(i=0;i<inequations;i++){
