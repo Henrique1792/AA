@@ -46,10 +46,34 @@ GAME *create_game(int size,int inequations){
 
   rt->inequations=(INEQUATION *)malloc(inequations*sizeof(INEQUATION));
   rt->nInequations=inequations; 
+  
   for(i=0;i<inequations;i++){
    scanf("%d, %d, %d, %d",&x1, &x2, &y1, &y2);
    j=set_inq_values(&(rt->inequations[i]),x1,x2,y1,y2,size);
   }
+
+  rt->size=size;
   return rt;  
 }
-void free_game(GAME **tgt);
+
+
+
+void free_game(GAME **tgt){
+  if(tgt==NULL || *tgt==NULL) return;
+  int i;
+  INEQUATION **tmp=NULL;
+  
+  for(i=(*tgt)->nInequations-1;i>=0;i--){
+    *tmp=&((*tgt)->inequations[i]);
+    free_inq(&(*tmp));
+  }
+
+  free((*tgt)->inequations);
+  free((*tgt)->possible_values);
+
+
+  for(i=0;i<(*tgt)->size;i++){
+    free((*tgt)->table[i]);
+  }
+  free(*tgt);
+}

@@ -21,6 +21,7 @@ void free_inq(INEQUATION **tgt);
 
 typedef struct GAME{
   int **table;
+  int size;
   int nInequations;
   int *possible_values;
   INEQUATION *inequations;
