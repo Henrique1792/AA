@@ -7,7 +7,7 @@
 
 #define SUCCESS 1
 #define FAIL 0
-#define DEFAULT -1
+#define DEFAULT 0
 
 
 typedef struct INEQUATION{

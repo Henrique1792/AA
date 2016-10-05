@@ -19,11 +19,6 @@ GAME *create_game(int size,int inequations){
 
   rt->inequations=(INEQUATION *)malloc(inequations*sizeof(INEQUATION));
   rt->nInequations=inequations; 
-  
-  for(i=0;i<inequations;i++){
-   scanf("%d %d %d %d",&a1, &a2, &b1, &b2);
-   j=set_inq_values(&(rt->inequations[i]),a1,a2,b1,b2,size);
-  }
 
   rt->size=size;
   return rt;  
