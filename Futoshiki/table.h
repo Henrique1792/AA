@@ -3,7 +3,6 @@
 
 #include "inequation.h"
 
-
 typedef struct GAME{
   int **table;
   int size;
@@ -12,7 +11,10 @@ typedef struct GAME{
   INEQUATION *inequations;
 }GAME;
 
-GAME *create_game(int size,int inequations);
+GAME *create_game(int size, int inequations);
+void print_table_header(GAME *tgt);
+void print_table_board(GAME *tgt);
+void print_table_inqs(GAME *tgt);
 void print_table(GAME *tgt);
 void free_game(GAME **tgt);
 
