@@ -19,7 +19,8 @@ teste:$(OBJS)
 run:
 	./teste
 
-
+debug:
+	valgrind ./teste
 
 
 clean:

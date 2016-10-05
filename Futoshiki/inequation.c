@@ -1,4 +1,7 @@
 #include "inequation.h"
+
+
+
 INEQUATION *create_inq(){
   INEQUATION *rt=(INEQUATION *)malloc(sizeof(INEQUATION));
   return rt==NULL ?  NULL : rt;

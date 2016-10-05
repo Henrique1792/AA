@@ -3,7 +3,7 @@
 GAME *create_game(int size,int inequations){
   if(size <0 || size <4||size>9 || inequations <=0) return NULL;
   GAME *rt=(GAME *)malloc(sizeof(GAME));
-  int i,j,x1,x2,y1,y2;
+  int i,j,a1,a2,b1,b2;
   
   rt->table=(int **)malloc(size*sizeof(int *));
   for (i=0;i<size;i++) rt->table[i]=(int *)malloc(size*sizeof(int));
@@ -21,8 +21,8 @@ GAME *create_game(int size,int inequations){
   rt->nInequations=inequations; 
   
   for(i=0;i<inequations;i++){
-   scanf("%d, %d, %d, %d",&x1, &x2, &y1, &y2);
-   j=set_inq_values(&(rt->inequations[i]),x1,x2,y1,y2,size);
+   scanf("%d %d %d %d",&a1, &a2, &b1, &b2);
+   j=set_inq_values(&(rt->inequations[i]),a1,a2,b1,b2,size);
   }
 
   rt->size=size;
@@ -49,15 +49,16 @@ void free_game(GAME **tgt){
   int i;
   
 
-
-  for(i=0;i<(*tgt)->nInequations;i++) free_inq(&(*tgt)->inequations[i]);
-  free((*tgt)->inequations);
   free((*tgt)->possible_values);
+  
+  for(i=0;i<(*tgt)->nInequations;i++) 
+    free_inq(&(*tgt)->inequations[i]);
 
 
-  for(i=0;i<(*tgt)->size;i++){
+  for(i=0;i<(*tgt)->size;i++)
     free((*tgt)->table[i]);
-  }
+  
+  free((*tgt)->table);
   free(*tgt);
 }
 
