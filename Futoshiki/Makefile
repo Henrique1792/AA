@@ -1,4 +1,4 @@
-SRCS= table.c 
+SRCS= inequation.c table.c 
 OBJS= $(SRCS:.c=.o)
 
 
@@ -12,7 +12,7 @@ $(OBJS): %.o : %.h
 
 
 teste:$(OBJS)
-	g++ -g -Wall $^ main.c -o $@
+	gcc -g -Wall $^ main.c -o $@
 
 
 
