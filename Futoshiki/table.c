@@ -1,4 +1,5 @@
 #include "table.h"
+#include "inequation.h"
 
 GAME *create_game(int size,int inequations){
   if(size <0 || size <4||size>9 || inequations <=0) return NULL;
@@ -26,7 +27,7 @@ GAME *create_game(int size,int inequations){
 
 
 void print_table_header(GAME *tgt){
-    printf("%d %d\n", tgt->size, tgt->nInequations);
+    printf("\n%d %d\n", tgt->size, tgt->nInequations);
 }
 
 
@@ -34,7 +35,6 @@ void print_table_board(GAME *tgt){
   if(tgt==NULL || tgt->table==NULL) return;
   int i,j;
 
-  printf("\n");
   for(i=0;i<tgt->size;i++){
     for(j=0;j<tgt->size;j++) printf("%d ",tgt->table[i][j]);
     printf("\n");
