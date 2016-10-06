@@ -1,15 +1,6 @@
 #include "quick.h"
 
 
-
-
-
-
-
-
-
-
-
 void swap(int *vector, int i, int j) {
   int aux = vector[i];
   vector[i] = vector[j];
@@ -18,7 +9,7 @@ void swap(int *vector, int i, int j) {
 
 int partition(int *vector, int left, int right) {
   int j, i = left;
-  
+
   for (j = i+1; j <= right; j++) {  // n-1
       if (vector[j] < vector[left]) {  // c
           i++;

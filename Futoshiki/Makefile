@@ -1,4 +1,4 @@
-SRCS= inequation.c table.c files.c 
+SRCS= inequation.c table.c files.c
 OBJS= $(SRCS:.c=.o)
 
 
@@ -24,4 +24,4 @@ debug:
 
 
 clean:
-	rm $(OBJS) teste
+rm $(OBJS) teste
