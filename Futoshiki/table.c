@@ -64,13 +64,10 @@ void free_game(GAME **tgt){
 
   free((*tgt)->possible_values);
 
-  for(i=0;i<(*tgt)->nInequations;i++)
-    free_inq(&(*tgt)->inequations[i]);
-
+  free((*tgt)->inequations);
 
   for(i=0;i<(*tgt)->size;i++)
     free((*tgt)->table[i]);
-
   free((*tgt)->table);
   free(*tgt);
 }

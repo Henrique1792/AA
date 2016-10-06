@@ -17,8 +17,10 @@ typedef struct INEQUATION{
 
 INEQUATION *create_inq();
 int set_inq_values(INEQUATION *tgt,int x1, int x2, int y1, int y2, int size);
+
 void free_inq(INEQUATION *tgt);
 
+void print_inq(INEQUATION tgt);
 
 
 
