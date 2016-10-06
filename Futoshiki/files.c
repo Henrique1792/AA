@@ -61,6 +61,7 @@ int readNumberOfCases(FILE *stream){
             int result = 0;
 
             result = atoi(line);
+            free(line);
 
             return result;
         }
@@ -81,6 +82,7 @@ int *readTableConfig(FILE *stream){
 
             config[0] = atoi(strtok(line, " \n"));
             config[1] = atoi(strtok(NULL, " \n"));
+            free(line);
 
             return config;
         }
