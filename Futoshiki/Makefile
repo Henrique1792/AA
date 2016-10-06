@@ -24,4 +24,4 @@ debug:
 
 
 clean:
-	rm $(OBJS) teste
+rm $(OBJS) teste

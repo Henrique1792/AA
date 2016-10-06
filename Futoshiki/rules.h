@@ -7,10 +7,4 @@ int check_lines(GAME *tgt);
 int check_columns(GAME *tgt);
 int check_inequations(GAME *tgt);
 
-
-
-
-
-
-
 #endif
