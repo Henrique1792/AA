@@ -3,8 +3,7 @@
 
 #include "table.h"
 #include "quick.h"
-int check_lines(GAME *tgt);
-int check_columns(GAME *tgt);
-int check_inequations(GAME *tgt);
+int check_line(GAME *tgt, int line);
+int check_column(GAME *tgt, int column);
 
 #endif
