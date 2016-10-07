@@ -67,6 +67,8 @@ int readNumberOfCases(FILE *stream){
 
             return result;
         }
+
+        free(line);
     }
     return -1;
 }
@@ -88,6 +90,8 @@ int *readTableConfig(FILE *stream){
 
             return config;
         }
+
+        free(line);
     }
     return NULL;
 }

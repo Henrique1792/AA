@@ -43,11 +43,11 @@ void readController(FILE *file){
 
         print_table(curGame);
         free_game(&curGame);
+        free(tableConfig);
 
         readLine(file);
         count = count + 1;
     }
-
 }
 
 /* Loop principal */
@@ -61,7 +61,7 @@ int main(){
     filename = readFilename();
     file = openFile(filename);
 
-    if(file) readController(file);
+    readController(file);
 
     /* Fecha o arquivo */
     closeFile(file);
