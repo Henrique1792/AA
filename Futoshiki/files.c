@@ -45,6 +45,8 @@ char *readLine(FILE *stream){
 
             return line;
         }
+
+        free(line);
     }
     return NULL;
 }
