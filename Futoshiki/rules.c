@@ -54,8 +54,12 @@ int check_column(GAME *tgt, int column){
 int check_inequations(GAME *tgt){
   if(tgt==NULL) return FAIL;
   int i;
-
+  
+  
   for(i=0;i<tgt->nInequations;i++){
+    if(tgt->table[tgt->inequations[i].x1][tgt->inequations[i].x2]==0
+      || tgt->table[tgt->inequations[i].y1][tgt->inequations[i].y2]==0)     return SUCCESS;
+    
     if(tgt->table[tgt->inequations[i].x1][tgt->inequations[i].x2] >
         tgt->table[tgt->inequations[i].y1][tgt->inequations[i].y2]){
       return FAIL;

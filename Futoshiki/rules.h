@@ -21,4 +21,11 @@ int check_line(GAME *tgt, int line);
 */
 int check_column(GAME *tgt, int column);
 
+/*
+ *check_inequations
+ *Description: Check inequations  of tgt game
+ *ARGS:game target
+ *Returns SUCCESS if inequations are ok; FALSE instead
+*/
+int check_inequations(GAME *tgt);
 #endif
