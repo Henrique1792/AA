@@ -17,14 +17,14 @@ int compare_vectors(int *v1, int *v2, int size){
 
 int check_line(GAME *tgt, int line){
   if(tgt==NULL || line<0 || line >=tgt->size)  return FAIL;
-  int i, j, result=FAIL,*chk;
+  int j, result=FAIL,*chk=NULL;
 
 
     for(j=0;j<tgt->size;j++){
       if(tgt->table[line][j]==DEFAULT) return result;
     }      
     
-    memcpy(chk,tgt->table[line],sizeof(tgt->table[i]));
+    memcpy(chk,tgt->table[line],sizeof(tgt->size));
     quicksort(chk,0,(tgt->size)-1);
     result=compare_vectors(chk,tgt->possible_values,tgt->size);
     free(chk);
@@ -33,16 +33,16 @@ int check_line(GAME *tgt, int line){
 }
 
 int check_column(GAME *tgt, int column){
-  if(tgt==NULL && column<0 || column>=tgt->size)  return FAIL;
-  int i, j, result,*chk;
+  if(tgt==NULL || column<0 || column>=tgt->size)  return FAIL;
+  int j, result=FAIL,*chk=NULL;
 
   
     for(j=0;j<tgt->size;j++){    
-      if(tgt->table[j][i]==DEFAULT) return result;
+      if(tgt->table[j][column]==DEFAULT) return result;
     }
 
     chk=(int *)malloc(tgt->size*sizeof(int));
-    for(j=0;j<tgt->size;j++) chk[j]=tgt->table[j][i];
+      for(j=0;j<tgt->size;j++) chk[j]=tgt->table[j][column];
     
     quicksort(chk,0,(tgt->size)-1);
     result=compare_vectors(chk,tgt->possible_values,tgt->size);

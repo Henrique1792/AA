@@ -4,8 +4,7 @@
 GAME *create_game(int size,int inequations){
   if(size <0 || size <4||size>9 || inequations <=0) return NULL;
   GAME *rt=(GAME *)malloc(sizeof(GAME));
-  int i,j,a1,a2,b1,b2;
-
+  int i,j;
   rt->table=(int **)malloc(size*sizeof(int *));
   for (i=0;i<size;i++) rt->table[i]=(int *)malloc(size*sizeof(int));
 
