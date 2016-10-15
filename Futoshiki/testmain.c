@@ -5,7 +5,11 @@
 #include "files.h"
 #include "table.h"
 
+/* JOGO ATUAL / MASK */
+GAME *mask = NULL;
 
+/* BOARD PARA SOLUCOES */
+GAME *curGame = NULL;
 
 /* Logo */
 void startup(){
@@ -35,16 +39,17 @@ char *readFilename(){
 void readController(FILE *file){
     int numCases = 0, count = 0;
     int *tableConfig = NULL;
-    GAME *curGame = NULL;
 
     numCases = readNumberOfCases(file);
 
     while(count < numCases){
         tableConfig = readTableConfig(file);
-        curGame = readGameTable(tableConfig[0], tableConfig[1], file);
+        mask = readGameTable(tableConfig[0], tableConfig[1], file);
+        curGame = copy_game(mask);
 
         print_table(curGame);
         free_game(&curGame);
+        free_game(&mask);
         free(tableConfig);
 
         readLine(file);

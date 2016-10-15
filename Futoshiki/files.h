@@ -3,34 +3,52 @@
 
 #include "table.h"
 
-/* Abrir arquivo */
-/* Argumentos *filename (nome do arquivo) */
-/* Retorno: *newFile (arquivo aberto) || NULL (erro) */
+/*
+ *openFile
+ *Description: opens a certain file.
+ *ARGS: filename.
+ *Returns the opened file or NULL.
+*/
 FILE *openFile(char *filename);
 
-/* Read line */
-/* Argumentos: *stream (arquivo de origem) */
-/* Retorno: *line (linha lida) || NULL (erro) */
+/*
+ *readLine
+ *Description: reads a line in a certain file.
+ *ARGS: stream file.
+ *Returns a readed line or NULL if reached EOF/error ocurred.
+*/
 char *readLine(FILE *stream);
 
-/* Ler numero de casos */
-/* Argumentos: *stream (arquivo de origem) */
-/* Retorno: result (numero de casos) || -1 (erro) */
+/*
+ *readNumberOfCases
+ *Description: reads the number of cases.
+ *ARGS: stream file.
+ *Returns the number of cases or -1 if error.
+*/
 int readNumberOfCases(FILE *stream);
 
-/* Ler configuracao da tabela */
-/* Argumentos: *stream (arquivo de origem) */
-/* Retorno: *config ([0]: tamanho da tabela, [1]: numero de inequacoes) || NULL (erro) */
+/*
+ *readTableConfig
+ *Description: reads the next table configuration.
+ *ARGS: stream file.
+ *Returns the size of the table [0] and number of inequations [1] or NULL if error.
+*/
 int *readTableConfig(FILE *stream);
 
-/* Ler tabuleiro */
-/* Argumentos: size (tamanho do tabuleiro), nInequations (numero de inequacoes), *stream (arquivo de origem) */
-/* Retorno: *newGame(jogo lido) || NULL (erro) */
+/*
+ *readGameTable
+ *Description: reads the game table.
+ *ARGS: table size, number of inequations and stream file.
+ *Returns the next game read or NULL if error.
+*/
 GAME *readGameTable(int size, int nInequations, FILE *stream);
 
-/* Fechar arquivo */
-/* Argumentos: *stream (arquivo de origem) */
-/* Retorno: nenhum */
+/*
+ *closeFile
+ *Description: closes a certain file.
+ *ARGS: file.
+ *No return.
+*/
 void closeFile(FILE *file);
 
 #endif

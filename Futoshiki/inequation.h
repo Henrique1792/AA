@@ -22,6 +22,15 @@ typedef struct INEQUATION{
  *Returns inequation if success or NULL.
 */
 INEQUATION *create_inq();
+
+/*
+ *copy_inq
+ *Description: copies a certain inequation structure.
+ *ARGS:origin structure, origin size;
+ *Returns the copied inequation if success or NULL.
+*/
+INEQUATION *copy_inq(INEQUATION *origin, int size);
+
 /*
  *set_inq_values
  *Description: Set an inequation values.

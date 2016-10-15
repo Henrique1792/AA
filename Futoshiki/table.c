@@ -24,6 +24,24 @@ GAME *create_game(int size,int inequations){
   return rt;
 }
 
+GAME *copy_game(GAME *origin){
+    if(origin){
+        int i = 0, j = 0;
+        GAME *copy = create_game(origin->size, origin->nInequations);
+
+        for(i=0; i < origin->size; i++){
+            for(j=0; j < origin->size; j++)
+            copy->table[i][j] = origin->table[i][j];
+        }
+
+        free_inq(copy->inequations);
+        copy->inequations = copy_inq(origin->inequations, origin->nInequations);
+
+        return copy;
+    }
+    return NULL;
+}
+
 
 void print_table_header(GAME *tgt){
     printf("\n%d %d\n", tgt->size, tgt->nInequations);

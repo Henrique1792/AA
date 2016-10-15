@@ -7,6 +7,23 @@ INEQUATION *create_inq(){
   return rt==NULL ?  NULL : rt;
 }
 
+INEQUATION *copy_inq(INEQUATION *origin, int size){
+    if(origin && size > 0){
+        INEQUATION *copy = (INEQUATION *) malloc(size * sizeof(INEQUATION));
+
+        int i = 0;
+        for(i = 0; i < size; i++){
+            copy[i].x1 = origin[i].x1;
+            copy[i].x2 = origin[i].x2;
+            copy[i].y1 = origin[i].y1;
+            copy[i].y2 = origin[i].y2;
+        }
+
+        return copy;
+    }
+    return NULL;
+}
+
 int set_inq_values(INEQUATION *tgt, int x1, int x2, int y1, int y2, int size){
   if((x1>=size ||x1<0)||
     (x2>=size ||x2<0)||

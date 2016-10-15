@@ -20,6 +20,14 @@ typedef struct GAME{
 GAME *create_game(int size, int inequations);
 
 /*
+ *copy_game
+ *Description: copies a certain game structure.
+ *ARGS:origin game
+ *Returns GAME copy or NULL if error.
+*/
+GAME *copy_game(GAME *origin);
+
+/*
  *print_table_header
  *Description: print header gameplay.
  *ARGS:target game
