@@ -16,34 +16,32 @@ int brute_force_iter(){
     column = column + 1;
 
     if(column == curGame->size){
-      column = 0;
-      line = line + 1;
+        column = 0;
+        line = line + 1;
     }
 
     if(line == curGame->size) return SUCCESS;
 
-    if(mask->table[line][column] == 0){
-        //printf("nom");
-        int i;
-        for(i = 1; i <= curGame->size; i++){
-            curGame->table[line][column] = i;
-            if((check_line(line) && check_column(column)
-                && check_inequations(line, column)) && brute_force_iter())
-                return SUCCESS;
-        }
+    if(mask->table[line][column] != 0) return brute_force_iter();
 
-        curGame->table[line][column] = 0;
-        column = column - 1;
-        if(column < 0){
-           column = curGame->size - 1;
-           line = line - 1;
-        }
-        return FAIL;
+    int i = 1;
+    for(i = 1; i <= curGame->size; i++){
+        curGame->table[line][column] = i;
+
+        if((check_line(line) && check_column(column)
+            && check_inequations(line, column)) && brute_force_iter())
+            return SUCCESS;
     }
-    else{
-        //printf("m");
-        return brute_force_iter();
+
+    curGame->table[line][column] = mask->table[line][column];
+
+    column = column - 1;
+    if(column < 0){
+       column = curGame->size - 1;
+       line = line - 1;
     }
+
+    return FAIL;
 }
 
 void brute_force(){

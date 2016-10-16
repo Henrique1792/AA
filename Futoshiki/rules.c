@@ -88,6 +88,8 @@ int check_inequations(int x, int y){
 
                 if(curGame->table[x1][y1] > curGame->table[x2][y2])
                     return FAIL;
+                else
+                    return SUCCESS;
             }
         }
     }
