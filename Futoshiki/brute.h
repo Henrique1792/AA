@@ -16,19 +16,19 @@ void brute_force();
  *Look_Ahead
  *Description: Applies bruteforce technique
  *             with Look Ahead Heuristics to solve Futoshiki game
- *ARGS:target game.
+ *ARGS:No Args.
  *No Return.
  */
-void Look_Ahead(GAME *tgt);
+void Look_Ahead();
 
 /*
  *MVR
  *Description: Applies bruteforce technique
  *             with MVR Heuristics to solve Futoshiki game.
- *ARGS: target game.
+ *ARGS: No Args.
  *No Return.
 */
-void MVR(GAME *tgt);
+void MVR();
 
 
 

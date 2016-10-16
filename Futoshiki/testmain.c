@@ -48,8 +48,8 @@ void readController(FILE *file){
         mask = readGameTable(tableConfig[0], tableConfig[1], file);
         curGame = copy_game(mask);
 
-        brute_force();
-
+        //brute_force();
+        Look_Ahead();
         print_table_board(curGame);
 
         free_game(&mask);
