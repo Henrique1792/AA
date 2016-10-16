@@ -27,8 +27,8 @@ int brute_force_iter(){
         int i;
         for(i = 1; i <= curGame->size; i++){
             curGame->table[line][column] = i;
-            if(check_line(line) && check_column(column)
-                && check_inequations(line, column) && brute_force_iter())
+            if((check_line(line) && check_column(column)
+                && check_inequations(line, column)) && brute_force_iter())
                 return SUCCESS;
         }
 
