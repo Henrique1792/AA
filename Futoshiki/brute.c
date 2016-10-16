@@ -69,7 +69,8 @@ int LookAhead_iter(int line, int column){
     }
     
   }
- 
+  
+  //Set Current value to it's mask. 
   curGame->table[line][column]=mask->table[line][column];
   return FAIL;
 }
