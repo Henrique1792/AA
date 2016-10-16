@@ -51,8 +51,9 @@ void readController(FILE *file){
         brute_force();
 
         print_table_board(curGame);
-        free_game(&curGame);
+
         free_game(&mask);
+        free_game(&curGame);
         free(tableConfig);
 
         readLine(file);
