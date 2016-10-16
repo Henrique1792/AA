@@ -4,6 +4,7 @@
 
 #include "files.h"
 #include "table.h"
+#include "brute.h"
 
 /* JOGO ATUAL / MASK */
 GAME *mask = NULL;
@@ -18,7 +19,7 @@ void startup(){
     printf("##    ## #   ##   ## #  ###   ## #  ##  ## #   ##\n");
     printf("###   ## #   ##   ## #   ###  ####  ##  ####   ##\n");
     printf("##     ###   ##   ####  ###   ## #  ##  ##  #  ##\n");
-    printf("Futoshiki solver v0.1\n");
+    printf("Futoshiki solver v0.4\n");
     printf("by meist3r-ed, freitash\n");
     printf("\n");
 }
@@ -47,7 +48,9 @@ void readController(FILE *file){
         mask = readGameTable(tableConfig[0], tableConfig[1], file);
         curGame = copy_game(mask);
 
-        print_table(curGame);
+        brute_force();
+
+        print_table_board(curGame);
         free_game(&curGame);
         free_game(&mask);
         free(tableConfig);

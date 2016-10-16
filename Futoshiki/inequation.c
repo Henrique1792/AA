@@ -14,8 +14,8 @@ INEQUATION *copy_inq(INEQUATION *origin, int size){
         int i = 0;
         for(i = 0; i < size; i++){
             copy[i].x1 = origin[i].x1;
-            copy[i].x2 = origin[i].x2;
             copy[i].y1 = origin[i].y1;
+            copy[i].x2 = origin[i].x2;
             copy[i].y2 = origin[i].y2;
         }
 

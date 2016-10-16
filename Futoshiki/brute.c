@@ -1,53 +1,55 @@
 #include "brute.h"
 
+#define MAX_ITER 1000000
 
-GAME *global_game;
-int brute_force_iter(int **board,int line, int column, int size){
-    if(line==size) return SUCCESS;
-    if(column == size){
-      column=0;
-      line++;
+/* Referencia para as variaveis globais em testmain.c */
+extern GAME *mask;
+extern GAME *curGame;
+
+int line = 0;
+int column = -1;
+
+/* Contador de iteracoes */
+int iter_count = 0;
+
+int brute_force_iter(){
+    column = column + 1;
+
+    if(column == curGame->size){
+      column = 0;
+      line = line + 1;
     }
-    int i;
 
-   for(i=0;i<size;i++){
-    board[line][column]=i;
-    if((check_line(global_game,line)&&check_column(global_game,column)&& check_inequations(global_game)) 
-      && brute_force_iter(board,line,column++,size)) return SUCCESS;
-   }
-   
-   board[line][column]=0;
-   column--;
-   if(column<0){
-    column=size-1;
-    line--;
-   }
-   return FAIL;
+    if(line == curGame->size) return SUCCESS;
+
+    if(mask->table[line][column] == 0){
+        //printf("nom");
+        int i;
+        for(i = 1; i <= curGame->size; i++){
+            curGame->table[line][column] = i;
+            if(check_line(line) && check_column(column)
+                && check_inequations(line, column) && brute_force_iter())
+                return SUCCESS;
+        }
+
+        curGame->table[line][column] = 0;
+        column = column - 1;
+        if(column < 0){
+           column = curGame->size - 1;
+           line = line - 1;
+        }
+        return FAIL;
+    }
+    else{
+        //printf("m");
+        return brute_force_iter();
+    }
 }
 
-  
-  
-void brute_force(GAME *tgt){
-  if(tgt==NULL) return;
-  int i,j;
-  int **board;
-   
-  board=(int **)malloc(tgt->size*sizeof(int *));
-  for(i=0;i<tgt->size;i++) board[i]=(int *)malloc(tgt->size*sizeof(int));
-  
-  for(i=0;i<tgt->size;i++){
-    for(j=0;j<tgt->size;j++) board[i][j]=tgt->table[i][j];
-  }
-
-  i=j=0;
-
-
-
-  brute_force_iter(board, i, j,tgt->size); 
-  for(i=0;i<tgt->size;i++) free(board[i]);
-  free(board);
+void brute_force(){
+    if(curGame == NULL) return;
+    brute_force_iter();
 }
-
 
 void Look_Ahead(GAME *tgt);
 void MVR(GAME *tgt);

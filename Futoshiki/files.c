@@ -12,15 +12,15 @@ FILE *openFile(char *filename){
     if(filename){
         FILE *newFile = fopen(filename, "r");
         if(newFile){
-            printf(">Arquivo aberto com sucesso.");
+            printf(">Arquivo aberto com sucesso.\n");
             fseek(newFile, 0, SEEK_SET);
         }
         else{
-            printf(">Arquivo inexistente ou erro ao abrir");
+            printf(">Arquivo inexistente ou erro ao abrir.\n");
         }
         return newFile;
     }
-    printf(">Nome de arquivo eh nulo");
+    printf(">Nome de arquivo eh nulo.\n");
     return NULL;
 }
 
@@ -125,10 +125,10 @@ GAME *readGameTable(int size, int nInequations, FILE *stream){
         for(i = 0; i < nInequations; i++){
             curLine = readLine(stream);
 
-            newGame->inequations[i].x1 = atoi(strtok(curLine, " "));
-            newGame->inequations[i].y1 = atoi(strtok(NULL, " "));
-            newGame->inequations[i].x2 = atoi(strtok(NULL, " "));
-            newGame->inequations[i].y2 = atoi(strtok(NULL, " "));
+            newGame->inequations[i].x1 = atoi(strtok(curLine, " ")) - 1;
+            newGame->inequations[i].y1 = atoi(strtok(NULL, " ")) - 1;
+            newGame->inequations[i].x2 = atoi(strtok(NULL, " ")) - 1;
+            newGame->inequations[i].y2 = atoi(strtok(NULL, " ")) - 1;
 
             free(curLine);
         }

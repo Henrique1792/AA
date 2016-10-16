@@ -6,26 +6,26 @@
 
 
 /*
- *check_lines
+ *check_line
  *Description: Check line  of tgt game
- *ARGS:game target, line
+ *ARGS: line
  *Returns SUCCESS if line obey futoshiki's rules; FALSE instead
 */
-int check_line(GAME *tgt, int line);
+int check_line(int line);
 
 /*
- *check_columns
- *Description: Check coolumn  of tgt game
- *ARGS:game target, column
+ *check_column
+ *Description: Check column of current game
+ *ARGS: column
  *Returns SUCCESS if column obey futoshiki's rules; FALSE instead
 */
-int check_column(GAME *tgt, int column);
+int check_column(int column);
 
 /*
  *check_inequations
- *Description: Check inequations  of tgt game
- *ARGS:game target
+ *Description: Check inequations of current game
+ *ARGS: No args
  *Returns SUCCESS if inequations are ok; FALSE instead
 */
-int check_inequations(GAME *tgt);
+int check_inequations(int x, int y);
 #endif

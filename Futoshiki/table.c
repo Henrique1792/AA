@@ -49,13 +49,14 @@ void print_table_header(GAME *tgt){
 
 
 void print_table_board(GAME *tgt){
-  if(tgt==NULL || tgt->table==NULL) return;
-  int i,j;
+    if(tgt==NULL || tgt->table==NULL) return;
 
-  for(i=0;i<tgt->size;i++){
-    for(j=0;j<tgt->size;j++) printf("%d ",tgt->table[i][j]);
     printf("\n");
-  }
+    int i,j;
+    for(i=0;i<tgt->size;i++){
+        for(j=0;j<tgt->size;j++) printf("%d ",tgt->table[i][j]);
+        printf("\n");
+    }
 
 }
 
