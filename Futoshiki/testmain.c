@@ -12,6 +12,9 @@ GAME *mask = NULL;
 /* BOARD PARA SOLUCOES */
 GAME *curGame = NULL;
 
+/*Vetor para look ahead*/
+int *LAhead=NULL;
+
 /* Logo */
 void startup(){
     printf("\n");

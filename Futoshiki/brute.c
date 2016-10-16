@@ -5,6 +5,8 @@
 /* Referencia para as variaveis globais em testmain.c */
 extern GAME *mask;
 extern GAME *curGame;
+extern int *value;
+
 
 int line = 0;
 int column = -1;
@@ -49,5 +51,27 @@ void brute_force(){
     brute_force_iter();
 }
 
-void Look_Ahead(GAME *tgt);
-void MVR(GAME *tgt);
+
+/*Look Ahead*/
+
+int Look_Ahead_iter(){
+
+
+}
+
+void Look_Ahead(){
+  if(curGame==NULL) return;
+  Look_Ahead_iter();
+}
+
+
+/*MVR*/
+int MVR_iter(){
+
+
+}
+
+void MVR(){
+  if(curGame==NULL) return;
+  MVR_iter();
+}

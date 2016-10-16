@@ -19,7 +19,7 @@ void brute_force();
  *ARGS:target game.
  *No Return.
  */
-void Look_Ahead(GAME *tgt);
+void Look_Ahead();
 
 /*
  *MVR
@@ -28,7 +28,7 @@ void Look_Ahead(GAME *tgt);
  *ARGS: target game.
  *No Return.
 */
-void MVR(GAME *tgt);
+void MVR();
 
 
 
