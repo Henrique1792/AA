@@ -19,7 +19,7 @@ void brute_force();
  *ARGS:No Args.
  *No Return.
  */
-void Look_Ahead();
+void look_ahead();
 
 /*
  *MVR

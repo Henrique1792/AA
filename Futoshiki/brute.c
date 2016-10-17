@@ -6,10 +6,21 @@
 extern GAME *mask;
 extern GAME *curGame;
 int **auxboard;
+
+extern FILE *timestamps;
+
 /* Contador de iteracoes */
 int iter_count = 0;
 
 int brute_force_iter(int line, int column){
+    iter_count = iter_count + 1;
+
+    if(iter_count >= MAX_ITER){
+        printf("\n>TIMEOUT");
+        fprintf(timestamps, "[T]");
+        return SUCCESS;
+    }
+
     if(column >= curGame->size){
         column = 0;
         line = line + 1;
@@ -36,61 +47,74 @@ int brute_force_iter(int line, int column){
 void brute_force(){
     if(curGame == NULL) return;
     brute_force_iter(0, 0);
+    iter_count = 0;
 }
 
 
 
 int LookAhead_iter(int line, int column){
-  int i;
-  //Reach end of line.
-  if(column>=curGame->size){
-    column=0;
-    line++;
-  }
-  
-  //Reach end of Game
-  if(line == curGame->size) return SUCCESS;
- 
-  //Find an value set by user.
-  if(mask->table[line][column]!=0){
-    return LookAhead_iter(line, column+1);
-  }
+    iter_count = iter_count + 1;
 
-  //All Possibilities were used.
-  if(auxboard[line][column]==0)  return FAIL;
- 
-  //Check Line, Column, possible Inequations
-  for(i=1;i<=curGame->size;i++){
-    curGame->table[line][column] = i;
-    if((check_line(line) && check_column(column) && check_inequations(line, column)) 
-      && LookAhead_iter(line, column+1)){
-      auxboard[line][column]--;
-      return SUCCESS;
+    if(iter_count >= MAX_ITER){
+        printf("\n>TIMEOUT");
+        fprintf(timestamps, "[T]");
+        return SUCCESS;
     }
-    
-  }
-  
-  //Set Current value to it's mask. 
-  curGame->table[line][column]=mask->table[line][column];
-  return FAIL;
+
+    int i;
+    //Reach end of line.
+    if(column>=curGame->size){
+        column=0;
+        line++;
+    }
+
+    //Reach end of Game
+    if(line == curGame->size) return SUCCESS;
+
+    //Find an value set by user.
+    if(mask->table[line][column]!=0){
+        return LookAhead_iter(line, column+1);
+    }
+
+    //All Possibilities were used.
+    if(auxboard[line][column]==0)  return FAIL;
+
+    //Check Line, Column, possible Inequations
+    for(i=1;i<=curGame->size;i++){
+        curGame->table[line][column] = i;
+        if((check_line(line) && check_column(column) && check_inequations(line, column))
+        && LookAhead_iter(line, column+1)){
+            auxboard[line][column]--;
+            return SUCCESS;
+        }
+    }
+
+    //Set Current value to it's mask.
+    curGame->table[line][column] = mask->table[line][column];
+    return FAIL;
 }
 
-void Look_Ahead(){
-  if(curGame==NULL) return;
-  int i,j;
-  auxboard=(int **)malloc(curGame->size*sizeof(int *));
+void look_ahead(){
+    if(curGame==NULL) return;
+    int i,j;
+    auxboard=(int **)malloc(curGame->size*sizeof(int *));
 
-  for(i=0;i<curGame->size;i++) auxboard[i]=(int *)malloc(curGame->size*sizeof(int));
-  for(i=0;i<curGame->size;i++){
-    for(j=0;j<curGame->size;j++){
-      auxboard[i][j]=curGame->size;
+    for(i=0;i<curGame->size;i++)
+        auxboard[i] = (int *)malloc(curGame->size*sizeof(int));
+    for(i=0;i<curGame->size;i++){
+        for(j=0;j<curGame->size;j++){
+            auxboard[i][j] = curGame->size;
+        }
     }
-  }
-  LookAhead_iter(0,0);
-  for(i=0;i<curGame->size;i++) free(auxboard[i]);
-  free(auxboard);
+
+    LookAhead_iter(0,0);
+    iter_count = 0;
+
+    for(i=0;i<curGame->size;i++)
+        free(auxboard[i]);
+    free(auxboard);
 }
-  
+
 
 
 /*int mvr_iter(int line, int column){}*/
