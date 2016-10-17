@@ -2,26 +2,21 @@ SRCS= quick.c inequation.c table.c files.c rules.c brute.c
 OBJS= $(SRCS:.c=.o)
 
 
-all: teste
+all: futoshiki
 
 $(OBJS): %.o : %.h
 
 .c.o:
 	gcc -g -Wall -c $< -o $@
 
-
-
-teste:$(OBJS)
-	gcc -g -Wall $^ testmain.c -o $@
-
-
+futoshiki: $(OBJS)
+	gcc -g -Wall $^ main.c -o $@
 
 run:
-	./teste
+	./futoshiki
 
 debug:
-	valgrind ./teste
-
+	valgrind ./futoshiki
 
 clean:
-	rm $(OBJS) teste
+	rm $(OBJS) futoshiki

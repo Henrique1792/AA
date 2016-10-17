@@ -16,9 +16,7 @@ int brute_force_iter(int line, int column){
     iter_count = iter_count + 1;
 
     if(iter_count >= MAX_ITER){
-        printf("\n>TIMEOUT");
-        fprintf(timestamps, "[T]");
-        return SUCCESS;
+        return FAIL;
     }
 
     if(column >= curGame->size){
@@ -46,19 +44,21 @@ int brute_force_iter(int line, int column){
 
 void brute_force(){
     if(curGame == NULL) return;
-    brute_force_iter(0, 0);
+
+    if(brute_force_iter(0, 0) == FAIL){
+        printf("\n>TIMEOUT");
+        fprintf(timestamps, "(T) ");
+    }
+
+    fprintf(timestamps, "%dits, ", iter_count);
     iter_count = 0;
 }
-
-
 
 int LookAhead_iter(int line, int column){
     iter_count = iter_count + 1;
 
     if(iter_count >= MAX_ITER){
-        printf("\n>TIMEOUT");
-        fprintf(timestamps, "[T]");
-        return SUCCESS;
+        return FAIL;
     }
 
     int i;
@@ -95,7 +95,7 @@ int LookAhead_iter(int line, int column){
 }
 
 void look_ahead(){
-    if(curGame==NULL) return;
+    if(curGame == NULL) return;
     int i,j;
     auxboard=(int **)malloc(curGame->size*sizeof(int *));
 
@@ -107,7 +107,13 @@ void look_ahead(){
         }
     }
 
-    LookAhead_iter(0,0);
+    if(LookAhead_iter(0, 0) == FAIL){
+        printf("\n>TIMEOUT");
+        fprintf(timestamps, "(T) ");
+    }
+
+    fprintf(timestamps, "%dits, ", iter_count);
+
     iter_count = 0;
 
     for(i=0;i<curGame->size;i++)

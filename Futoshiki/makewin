@@ -1,3 +1,3 @@
-gcc -c inequation.c table.c quick.c rules.c brute.c files.c testmain.c
-gcc -o testmain inequation.o table.o quick.o rules.o brute.o files.o testmain.o
-testmain
+gcc -c inequation.c table.c quick.c rules.c brute.c files.c main.c
+gcc -o futoshiki inequation.o table.o quick.o rules.o brute.o files.o main.o
+futoshiki
