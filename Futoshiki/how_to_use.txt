@@ -1,0 +1,27 @@
+####  ## #  ####  ####   ###  ## #  ##  ##  #  ##
+##    ## #   ##   ## #  ###   ## #  ##  ## #   ##
+###   ## #   ##   ## #   ###  ####  ##  ####   ##
+##     ###   ##   ####  ###   ## #  ##  ##  #  ##
+
+
+How To use Futoshiki
+
+  1. Run Futoshiki
+     Open your terminal on the folder you downloaded the project
+     type:
+          ./futoshiki num_op
+      Where num_op is the operation you desire.
+          1- Simple Backtracking (default Operation);
+          2- Backtracking With Forward Checking;
+          3- Backtracking with Forward Checking and MVR;
+
+Inside the program, type namefile, where namefile's the one with 
+futoshiki game, according to default input, described at spec.pdf.
+
+
+
+We appreciate the preference.
+
+
+Coded by: 
+freitash
