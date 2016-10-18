@@ -2,7 +2,6 @@
 #define RULES_H_
 
 #include "table.h"
-#include "quick.h"
 
 
 /*

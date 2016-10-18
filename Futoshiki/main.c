@@ -15,15 +15,9 @@ GAME *curGame = NULL;
 
 /* TIPO DE OPERACAO */
 /* 1 = backtracking simples */
-/* 2 = backtracking + MVR */
-/* 3 = backtracking + MVR + Lookahead */
+/* 2 = backtracking + forward-checking */
+/* 3 = backtracking + forward-checking + mvr */
 int optype = 1;
-
-/* OPERADOR DE EXIBICAO */
-/* 0 = fechar arquivo */
-/* 1 = mostrar proximo */
-/* 2 = mostrar tudo */
-int opex = 0;
 
 /* ARQUIVO ATUALMENTE ABERTO */
 char *filename = NULL;
@@ -67,16 +61,16 @@ void readController(FILE *file){
 
     switch(optype){
         case 1:
-            printf("\n>Backtracking simples:\n\n");
-            timestamps = fopen("times_brute.dat", "w+");
+            printf("\n>Backtracking Simples:\n\n");
+            timestamps = fopen("times_bcsim.dat", "w+");
             break;
         case 2:
-            printf("\n>Backtracking + MVR:\n\n");
-            timestamps = fopen("times_mvr.dat", "w+");
+            printf("\n>Backtracking + Forward-Checking:\n\n");
+            timestamps = fopen("times_bcfc.dat", "w+");
             break;
         case 3:
-            printf("\n>Backtracking + MVR + Look-Ahead:\n\n");
-            timestamps = fopen("times_la.dat", "w+");
+            printf("\n>Backtracking + Forward-Checking + MVR:\n\n");
+            timestamps = fopen("times_bcfcmvr.dat", "w+");
             break;
     }
 
@@ -98,7 +92,7 @@ void readController(FILE *file){
                 brute_force();
                 break;
             case 2:
-                //mvr();
+                look_ahead();
                 break;
             case 3:
                 look_ahead();

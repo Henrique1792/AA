@@ -1,4 +1,4 @@
-SRCS= quick.c inequation.c table.c files.c rules.c brute.c
+SRCS= inequation.c table.c files.c rules.c brute.c
 OBJS= $(SRCS:.c=.o)
 
 
