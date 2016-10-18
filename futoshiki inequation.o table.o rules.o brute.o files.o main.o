@@ -1,0 +1,358 @@
+[33mcommit 3ecdc239611caad54b5f1f582c89b13c26ca439c[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Mon Oct 17 22:22:34 2016 -0200
+
+    Performance melhorada, correções feitas, MVR on the way
+
+[33mcommit 57e507841d4a665efe1c5db3ba26a33427564b2c[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Mon Oct 17 09:43:59 2016 -0200
+
+    Cleanup + contador de iterações
+
+[33mcommit baa0e7eab9f523bbdb02d396af803abab531fbda[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Mon Oct 17 09:06:12 2016 -0200
+
+    How to Use Added
+
+[33mcommit 943f6029e6026d4953bde076bc13aebd0221837c[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Sun Oct 16 23:42:29 2016 -0200
+
+    BT Simples & BT + LA funcionando corretamente, geração de timestamps + arquivos de dump OK :3
+
+[33mcommit a73fd40772bbec81895208d030a0a996ea2cfce9[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sun Oct 16 20:10:19 2016 -0200
+
+    Fixed Look Ahead
+
+[33mcommit 68088539d548d5ee4065a963df3d212b007ea9db[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sun Oct 16 20:09:44 2016 -0200
+
+    Look Ahead added
+
+[33mcommit ca370e984c1e03689f6276a7f1e7e3b48c95aaf3[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Sun Oct 16 17:21:48 2016 -0200
+
+    Backtracking simples funcionando (ALL HAIL LORD C)
+
+[33mcommit 7c0e6d276fa8e991953ca21e8919d9ea475e856a[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sun Oct 16 17:09:44 2016 -0200
+
+    Revert to e1804d817402dd81b6d4af75c6e95bd1a43f7848
+
+[33mcommit 0edc4d1f1a8123ac216510a846ad10b48bae1580[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sun Oct 16 16:30:57 2016 -0200
+
+    main.c removed
+
+[33mcommit 97f7654211075b6039073825a0043b601b40ba1c[m
+Merge: 0372c9b 89f9c9d
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sun Oct 16 16:29:49 2016 -0200
+
+    Merge branch 'Working'
+
+[33mcommit 0372c9b828d939b52842db63a1f35ca77db51592[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sun Oct 16 16:07:51 2016 -0200
+
+    MVR/Look ahead startup
+
+[33mcommit 89f9c9d90b1583ebe5b1a19a86f2c8915bc736d5[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sun Oct 16 16:04:45 2016 -0200
+
+    Look Ahead/MVR start up
+
+[33mcommit e1804d817402dd81b6d4af75c6e95bd1a43f7848[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Sun Oct 16 05:31:23 2016 -0200
+
+    Otimizações de código e performance, precisa arrumar o loop
+
+[33mcommit fbbe3030155973d745aa4328711775c289f71f49[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sun Oct 16 02:43:21 2016 -0200
+
+    comparation fixed
+
+[33mcommit 851192be65df28c8dcf430cf239e3f0045be5127[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Sun Oct 16 02:15:57 2016 -0200
+
+    Verificações OK, backtracking simples quase lá :3
+
+[33mcommit 6b70509d1d190d750588a1eddbfc684bcb3467ad[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Sat Oct 15 18:19:47 2016 -0300
+
+    Variáveis globais de masking e de solução adicionadas, no leaks detected :D
+
+[33mcommit da3a009d6f1eaeeea1ddde9115d3d6d65bb34a79[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sat Oct 15 17:28:23 2016 -0300
+
+    Brute start added, checks modified
+
+[33mcommit 7c2abf84f3fa98ccad26d2b06a0d369991a3641e[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sat Oct 15 15:56:25 2016 -0300
+
+    Warnings fixed
+
+[33mcommit 97cfe7c849f85dd4c56a4751c5f6f88b8a7e4dd6[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sat Oct 15 14:46:02 2016 -0300
+
+    .h Documented
+
+[33mcommit 7b50ee9fab41729ee10ac02aff7efcfe4b60ea9e[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Fri Oct 7 17:02:22 2016 -0300
+
+    Brute force added
+
+[33mcommit e43fcbcbc2d640c0bc7b3435e6221db4dfad4933[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Fri Oct 7 16:13:31 2016 -0300
+
+    Memory leaks (agora vai)
+
+[33mcommit 2e1bd04351cc914c0f2bf5c3e2f294fee7ddaf2c[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Fri Oct 7 15:39:04 2016 -0300
+
+    testmain: correção de memory leaks
+
+[33mcommit 90d8d9e25da5f8f1a14dc461a92cf4b84854d6f1[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Fri Oct 7 15:29:26 2016 -0300
+
+    Rules fixed
+
+[33mcommit 8b5010e3bc79e2a2bf57186d6453972d820a3ded[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Thu Oct 6 19:40:42 2016 -0300
+
+    fixed gitignore, .exe removed
+
+[33mcommit c5891ebf0e4b5dc57f5adf71268baac301a018f4[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Thu Oct 6 13:28:25 2016 -0300
+
+    Set up comparations
+
+[33mcommit 34f29c3278510f7ac7d5a375df8ebaa89eb8999f[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Wed Oct 5 23:34:41 2016 -0300
+
+    Testmain e files: memory leaks corrigidos
+
+[33mcommit fb6328ead509cfc2c2c65662cb5fc0efcb0aa463[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 23:26:07 2016 -0300
+
+    Fixed
+
+[33mcommit 0d99b1907489772f672bb5e6eb55677db83b0c3c[m
+Merge: e563415 e1e7106
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 23:23:20 2016 -0300
+
+    Merge branch 'master' of https://github.com/Henrique1792/AA
+    Fixing Conflicts
+
+[33mcommit e563415e7ec8a353db5a916c386e83563d963947[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 23:19:43 2016 -0300
+
+    Invalid free fixed
+
+[33mcommit e1e71067a8e6ab4acdf984d3f676266a70486064[m
+Merge: 7a4539a 0b4dc23
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Wed Oct 5 23:16:50 2016 -0300
+
+    Cleanup & merge
+
+[33mcommit 0b4dc23f96d056ce8113cc03f00fc34ff3008b98[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 22:51:43 2016 -0300
+
+    Rules added
+
+[33mcommit c75d99451d5365067e9b81eadfd894574c3c85cd[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 22:37:42 2016 -0300
+
+    Fixed
+
+[33mcommit 7a4539a8bdb63a3dd8691f537c7ed5ea0720803b[m
+Merge: 8404dbf eda83a2
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 17:47:26 2016 -0300
+
+    Fixed Makefile, quick, rules and table
+
+[33mcommit 8404dbf84255c35ee93bd35e81ff1d10ac170b54[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 17:43:05 2016 -0300
+
+    Fixed Makefile
+
+[33mcommit c2b18cc4278674ac91d4bc235bcea991873cc200[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Wed Oct 5 17:34:27 2016 -0300
+
+    Print corrigido
+
+[33mcommit eda83a2a34a4fcd542b5b2e0fdab3e43e730f27f[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 17:23:50 2016 -0300
+
+    rules added
+
+[33mcommit 2f0e22c0e871d0544596358d34d07b5f49ff0586[m
+Author: meist3r-ed <g.gaiax@gmail.com>
+Date:   Wed Oct 5 17:21:57 2016 -0300
+
+    Leitura OK
+
+[33mcommit 0c5d28b17e8f5e8f3a251a51a7139e2cd6d85468[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 16:11:33 2016 -0300
+
+    fixed create table
+
+[33mcommit 70ca0cec8e610a0303706d617a4096a9368bef32[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 15:32:52 2016 -0300
+
+    set values
+
+[33mcommit 78d1e8cc83fe3dd78c2b5f4414b62093a81c1cb6[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 13:33:12 2016 -0300
+
+    Inequation detached
+
+[33mcommit 4e6a112ffe3238cb49aec1a8dda1e092c4a0c36d[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Oct 5 13:31:12 2016 -0300
+
+    Inequations detached, print table added
+
+[33mcommit 0e6690c23a13308fb20b5d96206c81252447081c[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Tue Oct 4 11:37:13 2016 -0300
+
+    Free routine complete
+
+[33mcommit 72d4e306eea2c5cd0b3dd78230ab3dc267d5f237[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Mon Oct 3 03:04:35 2016 -0300
+
+    .
+
+[33mcommit 812eafe947bbd669b08d6b2d0a4808af27aa4e23[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Mon Oct 3 02:23:17 2016 -0300
+
+    Makefile set up
+
+[33mcommit 9357ba7a2d6edaa4ca64bb259dfd39646f9a637a[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Mon Oct 3 02:14:26 2016 -0300
+
+    Migration started
+
+[33mcommit 0ce29f796a1a7a610dfdbf6cc3ea26a08ce0e8ff[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Fri Sep 30 19:28:19 2016 -0300
+
+    Changing to C; Readme added
+
+[33mcommit 6d4fd316541473430fb8db2be1ed0a2bbc455ee1[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Sep 28 11:43:11 2016 -0300
+
+    startup structure going on.
+
+[33mcommit 0a86f37eff2d420c170f84553b72689df8b75a56[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Wed Sep 28 10:15:00 2016 -0300
+
+    Mounting table
+
+[33mcommit 6d9a0a5facdc0b63506b6bbf21c841a4691b6877[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sun Sep 25 15:24:57 2016 -0300
+
+    Start up
+
+[33mcommit 3b4a407fdf393b031b5409b93671849ec6fe8336[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sun Sep 25 14:02:05 2016 -0300
+
+    Project 1 added
+
+[33mcommit 208829f1e9c592d6a79ee5e7f2a7d26947ff0aed[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Fri Sep 16 10:46:44 2016 -0300
+
+    README refreshed
+
+[33mcommit b21d15b8e8515414d36caf03066194793c254ef2[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Tue Sep 13 19:27:27 2016 -0300
+
+    set up
+
+[33mcommit d722dbfaba7c972f3bafe61d22d9afc2ea571456[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Tue Sep 13 11:06:26 2016 -0300
+
+    setting up
+
+[33mcommit 44520e44890721d0e4229a8101aaf34bfb54f231[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Tue Sep 13 10:39:49 2016 -0300
+
+    .gitignore added
+
+[33mcommit 7b07a3258d7bbda05b4fb11eb84b1ab6b9b006ec[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Mon Sep 12 12:55:03 2016 -0300
+
+    Fixing up
+
+[33mcommit b235af484373a01e63e59844e0d43033b56e47af[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Thu Sep 1 22:49:43 2016 -0300
+
+    Logic fixed, .gitignore added
+
+[33mcommit d6bd561511b101e51431407ae0825a6cc8bed79f[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Thu Sep 1 18:45:46 2016 -0300
+
+    ReadMe Added
+
+[33mcommit 34a73209a7bf4fa4e5ff61f681b631156caf302e[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Thu Sep 1 18:34:42 2016 -0300
+
+    Inheritance problems solved
+
+[33mcommit af18e9b73d4c7812457ade8359dfa86a42abe4d6[m
+Author: Henrique1792 <freitash1792@gmail.com>
+Date:   Sun Aug 28 03:27:47 2016 -0300
+
+    Initial Commit

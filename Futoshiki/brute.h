@@ -28,6 +28,6 @@ void look_ahead();
  *ARGS: Current line, current column.
  *No Return.
 */
-void MVR(int *line, int *column);
+int MVR(int line, int column);
 
 #endif

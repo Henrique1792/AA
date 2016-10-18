@@ -108,21 +108,9 @@ int LookAhead_iter(int line, int column){
         if(check_line(line) && check_column(column)){
             iter_count = iter_count + 1;
 
-            if(optype == 3){
-                int nextX = line, nextY = column;
-
-                MVR(&nextX, &nextY);
-
-                if((check_inequations(line, column)) && LookAhead_iter(nextX, nextY)){
-                    updateAuxMatrix(line, column, 1);
-                    return SUCCESS;
-                }
-            }
-            else{
-                if((check_inequations(line, column)) && LookAhead_iter(line, column + 1)){
-                    updateAuxMatrix(line, column, 1);
-                    return SUCCESS;
-                }
+            if((check_inequations(line, column)) && LookAhead_iter(line, column + 1)){
+                updateAuxMatrix(line, column, 1);
+                return SUCCESS;
             }
         }
     }
@@ -155,13 +143,7 @@ void look_ahead(){
         }
     }
     else if(optype == 3){
-        int startX = 0, startY = 0;
-
-        MVR(&startX, &startY);
-
-        printf("%d %d", startX, startY);
-
-        if(LookAhead_iter(startX, startY) == FAIL){
+        if(MVR(0, 0) == FAIL){
             printf("\n>TIMEOUT");
             fprintf(timestamps, "(T) ");
         }
@@ -176,22 +158,69 @@ void look_ahead(){
     free(auxboard);
 }
 
-void MVR(int *line, int *column){
-    int i = 0;
-    int startX = *line, startY = *column;
-
+int checkMVREnd(){
+    int i = 0, j = 0, mark = 0;
     for(i = 0; i < mask->size; i++){
-        if(auxboard[startX][i] < auxboard[*line][*column])
-            if(mask->table[startX][i] == 0)
-                *line = startX;
-                *column = i;
+        for(j = 0; j < mask->size; j++){
+            if(mask->table[i][j] == 0)
+                if(auxboard[i][j] > 0)
+                    mark = 1;
+        }
     }
 
-    i = 0;
-    for(i = 0; i < mask->size; i++){
-        if(auxboard[i][startY] < auxboard[*line][*column])
-            if(mask->table[i][startY] == 0)
-                *line = i;
-                *column = startY;
+    if(mark == 1) return FAIL;
+    else return SUCCESS;
+}
+
+int MVR(int line, int column){
+    if(checkMVREnd() == SUCCESS) return SUCCESS;
+
+    //All Possibilities were used.
+    if(auxboard[line][column] == 0){
+        updateAuxMatrix(line, column, 2);
+        return FAIL;
     }
+
+    int i = 0, j = 0;
+    int nextX = line, nextY = column;
+
+    for(i = 0; i < mask->size; i++){
+        for(j = 0; j < mask->size; j++){
+            if(i != line || j != column){
+                if(curGame->table[i][j] == 0){
+                    if(auxboard[i][j] > 0 && auxboard[i][j] <= auxboard[nextX][nextY]){
+                        nextX = i;
+                        nextY = j;
+                    }
+                }
+            }
+        }
+    }
+
+    if(nextX == line && nextY == column) return FAIL;
+
+    //Check Line, Column, possible Inequations
+    for(i = 1; i<=curGame->size; i++){
+        curGame->table[nextX][nextY] = i;
+
+        if(iter_count >= MAX_ITER){
+            return FAIL;
+        }
+
+        if(check_line(nextX) && check_column(nextY)){
+            iter_count = iter_count + 1;
+
+            print_table_board(curGame);
+
+            if((check_inequations(nextX, nextY)) && MVR(nextX, nextY)){
+                updateAuxMatrix(nextX, nextY, 1);
+                return SUCCESS;
+            }
+        }
+    }
+
+    //Set Current value to it's mask.
+    curGame->table[nextX][nextY] = mask->table[nextX][nextY];
+
+    return FAIL;
 }
