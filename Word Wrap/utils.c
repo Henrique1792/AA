@@ -1,12 +1,21 @@
 #include "utils.h"
+#define SQR(x) x*x
 
-int line_size=0, nWords=0;
+int lineSize, nWords, *spacesVector, *linesVector;
+/*
+ * spacesVector = control spaces inside the line
+ * linesVector = control linesums 2 reach minimal sum.
+ *
+*/
+
+
+
+
 /*Open 'filename' File
  *return: File || NULL
  *
 */
-
-FILE *open_file(char *fileName){
+FILE *openFile(char *fileName){
   if(fileName==NULL) return NULL;
   FILE *rt = fopen(fileName, "r");
   return rt;
@@ -16,14 +25,15 @@ FILE *open_file(char *fileName){
  *No Return Value
  *
 */
-void close_file(FILE *tgt){
+void closeFile(FILE *tgt){
   if(tgt==NULL) return;
-  free(tgt);
+  fclose(tgt);
 }
 
 /*Read a line from file tgt
- *return: Line || NULL
- * */
+ *return: Line if succes  
+ *        NULL otherwise
+*/
 char *readFileLine(FILE *tgt){
   char *line=(char *)malloc(sizeof(char));
   if(tgt){
@@ -46,11 +56,16 @@ char *readFileLine(FILE *tgt){
 }
 
 
-
-int get_parameters(FILE *tgt){
+/*
+ *Get nWords and lineSize from 
+ *tgt file
+ *return: 1 if success.
+ *        0 otherwise.
+*/
+int getParameters(FILE *tgt){
   if(tgt==NULL) return 0;
   rewind(tgt);
-  line_size=atoi(readFileLine(tgt));
+  lineSize=atoi(readFileLine(tgt));
   nWords=atoi(readFileLine(tgt));
   return 1; 
 }
