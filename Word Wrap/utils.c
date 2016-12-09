@@ -2,81 +2,17 @@
 
 int lineSize, nWords, *wordSequence, jump;
 /*
- * spacesVector = control spaces inside the line
- * linesVector = control linesums 2 reach minimal sum.
-*/
-
-/*Open 'filename' File
- *return: File || NULL
- *
-*/
-FILE *openFile(char *fileName){
-  if(fileName==NULL) return NULL;
-  FILE *rt = fopen(fileName, "r");
-  return rt;
-}
-
-/*Close 'tgt' file
- *No Return Value
- *
-*/
-void closeFile(FILE *tgt){
-  if(tgt==NULL) return;
-  fclose(tgt);
-}
-
-/*Read a line from file tgt
- *return: Line if succes  
- *        NULL otherwise
-*/
-char *readFileLine(FILE *tgt){
-  char *line=(char *)malloc(sizeof(char));
-  if(tgt){
-    int n=0;
-    char buffer=' ';
-    buffer=fgetc(tgt);
-
-    if(buffer!='\n' && buffer!=EOF){
-      do{
-        line[n++]=buffer;
-        line=(char *)realloc(line, sizeof(char*)*(n+1));
-        buffer=fgetc(tgt);
-      }while(buffer!='\n' && buffer!=EOF);
-      line[n]='\0';
-      return line;
-    }
-  }
-  free(line);
-  return NULL;
-}
-
-
-/*
- *Get nWords and lineSize from 
- *tgt file
- *return: 1 if success.
- *        0 otherwise.
-*/
-int getParameters(FILE *tgt){
-  if(tgt==NULL) return 0;
-  rewind(tgt);
-  lineSize=atoi(readFileLine(tgt));
-  nWords=atoi(readFileLine(tgt));
-  return 1; 
-}
-
-
-/*
  *Get all sizes from words
  *parameter: file
  *
  *returns vector with word sizes.
 */
 int *getWordSizes(FILE *tgt){
-  int *rt=NULL,i=0,j;
+  int *rt =NULL;
+  int i=0,j;
   char *tmp=NULL;
  
-  while(!feof(tgt)){
+  do{
     tmp=readFileLine(tgt);
     j=0;
     if(tmp!=NULL){
@@ -85,9 +21,24 @@ int *getWordSizes(FILE *tgt){
       rt[i++]=j;
       free(tmp);
     }
-  }
-  rt[i]=(int)'\0';
+  }while(!feof(tgt));
   return rt;
 }
 
-
+/*
+ *Get nWords and lineSize from 
+ *tgt file
+ *return: 1 if success.
+ *        0 otherwise.
+*/
+int getParameters(FILE *tgt){
+  rewind(tgt);
+  char *tmp;
+  tmp=readFileLine(tgt);
+  lineSize=atoi(tmp);
+  free(tmp);
+  tmp=readFileLine(tgt);
+  nWords=atoi(tmp);
+  free(tmp);
+  return 1; 
+}

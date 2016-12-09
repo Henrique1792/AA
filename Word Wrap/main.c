@@ -6,18 +6,8 @@ int main(){
   int *teste;
   getParameters(rt);
   teste=getWordSizes(rt);
-  solveWordWrap(teste);
-  
-  closeFile(rt);
-  
-  rt=openFile("teste.dat");
-  getParameters(rt);
-  
-  
-  
-  
-  
-  free(teste);
+//  solveWordWrap(teste);
+//  free(teste);
   closeFile(rt);
   return 0;
 }

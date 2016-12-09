@@ -5,15 +5,13 @@
 #include <limits.h>
 #include <string.h>
 #include <limits.h>
+#include "files.h"
 #define maxLineSize 81
 #define maxWordNumber 1000
 #define SQR(x) x*x
 
 
 
-FILE *openFile(char *fileName);
-void closeFile(FILE *tgt);
 int *getWordSizes(FILE *tgt);
 int getParameters(FILE *tgt);
-
 #endif

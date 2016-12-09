@@ -1,4 +1,4 @@
-SRCS= utils.c ww.c
+SRCS= files.c utils.c ww.c
 OBJS= $(SRCS:.c=.o)
 
 
