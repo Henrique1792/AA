@@ -2,6 +2,20 @@
 
 extern int lineSize, nWords,*wordSequence;
 
+/*
+ * Print Solution obtained in ww.c: solveWordWrap()
+ * args: p vector with solution sequence
+ *       Total of words n.
+*/
+  int printSolution (int answer[], int n){
+  int k;
+  if (answer[n] == 1)
+    k = 1;
+  else
+    k = printSolution (answer, answer[n]-1) + 1;
+  printf ("Line number %d: From word no. %d to %d \n", k, answer[n], n);
+  return k;
+}
 
 void solveWordWrap (int sizes[]){
   int extras[nWords+1][nWords+1]; 

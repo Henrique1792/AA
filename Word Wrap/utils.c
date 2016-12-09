@@ -91,37 +91,3 @@ int *getWordSizes(FILE *tgt){
 }
 
 
-/*
- * Print Solution obtained in ww.c: solveWordWrap()
- * args: p vector with solution sequence
- *       Total of words n.
-*/
-  int printSolution (int answer[], int n){
-  int k;
-  if (answer[n] == 1)
-    k = 1;
-  else
-    k = printSolution (answer, answer[n]-1) + 1;
-  printf ("Line number %d: From word no. %d to %d \n", k, answer[n], n);
-  wordSequence=(int *)realloc(wordSequence,(jump+2)*sizeof(int));
-  wordSequence[jump++]=answer[n];
-  wordSequence[jump++]=n;
-  return k;
-}
-
-
-
-void output(FILE *tgt){
-  int i,j;
-  char *tmp;
-  for(i=0;i<nWords;i++){
-      for(j=i;j<=wordSequence[i];j++){
-        tmp=readFileLine(tgt);
-        if(tmp!=NULL){
-          printf("%s ",tmp);
-          free(tmp);
-        }
-      }
-      printf("\n");
-  }
-}
