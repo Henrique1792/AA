@@ -29,12 +29,20 @@ void solveWordWrap (int *sizes){
   int *aSequence=(int *)malloc((nWords+1)*sizeof(int));
   int i, j,k;
   
+  // calculate extra spaces in a single line.  The value extra[i][j]
+  // indicates extra spaces if words from word number i to j are
+  // placed in a single line 
+  
   for(k=0;k<nWords+1;k++) aSequence[k]=0;
   for (i = 1; i <= nWords; i++){
     extras[i][i] = lineSize - sizes[i-1];
     for (j = i+1; j <= nWords; j++)
       extras[i][j] = extras[i][j-1] - sizes[j-1] - 1;
   }
+  
+  // Calculate line cost corresponding to the above calculated extra
+  // spaces. The value lineCost[i][j] indicates cost of putting words from
+  // word number i to j in a single line
   
   for (i=1;i<=nWords;i++){
     for (j=i;j<=nWords;j++){
@@ -45,8 +53,11 @@ void solveWordWrap (int *sizes){
         lineCost[i][j] = extras[i][j]*extras[i][j];
     }
 }
-
-  totalCost[0] = 0;
+  // Calculate minimum cost and find minimum cost arrangement.
+  //  The value totalCost[j] indicates optimized cost to arrange words
+  // from word number 1 to j.
+  
+totalCost[0] = 0;
   for (j = 1; j <= nWords; j++){
     totalCost[j] = INT_MAX;
     for (i = 1; i <= j; i++){
