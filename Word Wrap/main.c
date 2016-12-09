@@ -2,7 +2,7 @@
 
 extern int lineSize, nWords;
 int main(){
-  FILE *rt = openFile("teste.dat");
+  FILE *rt = openFile("dataset_6_10.txt");
   int *teste;
   getParameters(rt);
   teste=getWordSizes(rt);

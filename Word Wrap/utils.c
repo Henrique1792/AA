@@ -40,3 +40,27 @@ int getParameters(FILE *tgt){
   free(tmp);
   return 1; 
 }
+
+/*
+ * Alloc Matrix
+ *
+*/
+int **getMatrix(int size){
+  if(size<=0) return NULL;
+  int i, **rt;
+  rt=(int **)malloc(size*sizeof(int));
+
+  for(i=0;i<size;i++)rt[i]=(int *)malloc(size*sizeof(int));
+  return rt;
+}
+/*
+ * free pre-alocated matrix
+ *
+ *
+*/
+void freeMatrix(int **tgt, int size){
+  if(tgt==NULL || *tgt==NULL || size<=0) return;
+  int i;
+  for(i=0;i<size;i++) free(tgt[i]);
+  free(tgt);
+}

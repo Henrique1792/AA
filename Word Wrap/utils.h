@@ -10,8 +10,8 @@
 #define maxWordNumber 1000
 #define SQR(x) x*x
 
-
-
+int **getMatrix(int size);
+void freeMatrix(int **tgt, int size);
 int *getWordSizes(FILE *tgt);
 int getParameters(FILE *tgt);
 #endif
