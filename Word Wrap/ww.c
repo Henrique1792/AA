@@ -52,5 +52,6 @@ void solveWordWrap (int sizes[]){
   }
  
   printSolution(aSequence, nWords);
+  free(aSequence);
 }
 

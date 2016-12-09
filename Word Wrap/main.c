@@ -6,8 +6,8 @@ int main(){
   int *teste;
   getParameters(rt);
   teste=getWordSizes(rt);
-//  solveWordWrap(teste);
-//  free(teste);
+  solveWordWrap(teste);
+  free(teste);
   closeFile(rt);
   return 0;
 }

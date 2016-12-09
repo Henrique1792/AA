@@ -9,16 +9,14 @@ int lineSize, nWords, *wordSequence, jump;
 */
 int *getWordSizes(FILE *tgt){
   int *rt =NULL;
-  int i=0,j;
+  int i=0;
   char *tmp=NULL;
  
   do{
     tmp=readFileLine(tgt);
-    j=0;
     if(tmp!=NULL){
       rt=(int *)realloc(rt, (i+1)*sizeof(int));
-      while(tmp[j]!='\0') j++;
-      rt[i++]=j;
+      rt[i++]=strlen(tmp);
       free(tmp);
     }
   }while(!feof(tgt));
