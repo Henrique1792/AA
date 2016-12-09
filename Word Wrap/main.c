@@ -1,18 +1,19 @@
 #include "ww.h"
 
-extern int lineSize, nWords;
+extern int lineSize, nWords, *wordSequence;
 
 int main(){
   FILE *rt = openFile("teste.dat");
   getParameters(rt);
   int *teste=getWordSizes(rt);
-  int *solution,i; 
-  solution=solveWordWrap(teste);
-
-  for(i=0;i<nWords;i++) printf("%d ",solution[i]);
-  printf("\n");
+  wordSequence=(int *)malloc(nWords*sizeof(int));
+  solveWordWrap(teste);
+  
+  
+  
+  
   free(teste);
-  free(solution);
   closeFile(rt);
+  free(wordSequence);
   return 0;
 }

@@ -2,7 +2,7 @@
 #define WW_H_
 #include "utils.h"
 
-int *solveWordWrap(int l[]);
+void solveWordWrap(int l[]);
 
 
 

@@ -3,7 +3,7 @@
 extern int lineSize, nWords, *spacesVector, *linesVector;
 
 
-int *solveWordWrap (int l[]){
+void solveWordWrap (int l[]){
 	int extras[nWords+1][nWords+1]; 
 	int lc[nWords+1][nWords+1];
 	int c[nWords+1];
@@ -38,6 +38,5 @@ int *solveWordWrap (int l[]){
 	}
   
 	printSolution(p, nWords);
-  return p;
 }
 

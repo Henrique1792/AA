@@ -1,6 +1,6 @@
 #include "utils.h"
 
-int lineSize, nWords, *spacesVector, *linesVector;
+int lineSize, nWords, *wordSequence;
 /*
  * spacesVector = control spaces inside the line
  * linesVector = control linesums 2 reach minimal sum.
