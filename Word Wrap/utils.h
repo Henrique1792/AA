@@ -6,17 +6,15 @@
 
 #define maxLineSize 81
 #define maxWordNumber 1000
+#define SQR(x) x*x
 
 
 
-
-
-
-FILE *open_file(char *fileName);
-void close_file(FILE *tgt);
-
-int get_parameters(FILE *tgt);
-
+FILE *openFile(char *fileName);
+void closeFile(FILE *tgt);
+int *getWordSizes(FILE *tgt);
+int getParameters(FILE *tgt);
+int printSolution (int p[], int n);
 
 
 #endif

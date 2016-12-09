@@ -1,4 +1,4 @@
-SRCS= utils.c 
+SRCS= utils.c ww.c
 OBJS= $(SRCS:.c=.o)
 
 
