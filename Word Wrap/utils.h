@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
-
+#include <string.h>
 #define maxLineSize 81
 #define maxWordNumber 1000
 #define SQR(x) x*x
@@ -15,6 +15,6 @@ void closeFile(FILE *tgt);
 int *getWordSizes(FILE *tgt);
 int getParameters(FILE *tgt);
 int printSolution (int p[], int n);
-
+void output(FILE *tgt);
 
 #endif

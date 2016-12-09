@@ -1,6 +1,6 @@
 #include "ww.h"
 
-extern int lineSize, nWords, *spacesVector, *linesVector;
+extern int lineSize, nWords,*wordSequence;
 
 
 void solveWordWrap (int sizes[]){
@@ -36,8 +36,7 @@ void solveWordWrap (int sizes[]){
       }
     }
   }
-
+ 
   printSolution(aSequence, nWords);
-
 }
 

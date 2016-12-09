@@ -1,6 +1,6 @@
 #include "utils.h"
 
-int lineSize, nWords, **wordSequence;
+int lineSize, nWords, *wordSequence, jump;
 /*
  * spacesVector = control spaces inside the line
  * linesVector = control linesums 2 reach minimal sum.
@@ -83,7 +83,7 @@ int *getWordSizes(FILE *tgt){
       rt=(int *)realloc(rt, (i+1)*sizeof(int));
       while(tmp[j]!='\0') j++;
       rt[i++]=j;
-    free(tmp);
+      free(tmp);
     }
   }
   rt[i]=(int)'\0';
@@ -96,13 +96,32 @@ int *getWordSizes(FILE *tgt){
  * args: p vector with solution sequence
  *       Total of words n.
 */
-int printSolution (int p[], int n){
-	int k;
-	if (p[n] == 1)
-		k = 1;
-	else
-		k = printSolution (p, p[n]-1) + 1;
-	printf ("Line number %d: From word no. %d to %d \n", k, p[n], n);
-	return k;
+  int printSolution (int answer[], int n){
+  int k;
+  if (answer[n] == 1)
+    k = 1;
+  else
+    k = printSolution (answer, answer[n]-1) + 1;
+  printf ("Line number %d: From word no. %d to %d \n", k, answer[n], n);
+  wordSequence=(int *)realloc(wordSequence,(jump+2)*sizeof(int));
+  wordSequence[jump++]=answer[n];
+  wordSequence[jump++]=n;
+  return k;
 }
 
+
+
+void output(FILE *tgt){
+  int i,j;
+  char *tmp;
+  for(i=0;i<nWords;i++){
+      for(j=i;j<=wordSequence[i];j++){
+        tmp=readFileLine(tgt);
+        if(tmp!=NULL){
+          printf("%s ",tmp);
+          free(tmp);
+        }
+      }
+      printf("\n");
+  }
+}
