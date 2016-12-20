@@ -1,22 +1,26 @@
-SRCS= inequation.c table.c files.c rules.c brute.c
+SRCS=  person.c matchup.c
+LIB= libshapley.so
 OBJS= $(SRCS:.c=.o)
 
 
-all: futoshiki
+all: gale_shapley
 
 $(OBJS): %.o : %.h
 
 .c.o:
 	gcc -g -Wall -c $< -o $@
 
-futoshiki: $(OBJS)
-	gcc -g -Wall $^ main.c -o $@
+$(LIB): $(OBJS) 
+	gcc -shared -o $@ $^
+
+gale_shapley: $(LIB)
+	gcc -L/henrique/Documents/AA/Gale_Shapley -Wl,-rpath=henrique/Documents/AA/Gale_Shapley -g -Wall main.c -o $@  $^ 
 
 run:
-	./futoshiki
+	./gale_shapley
 
 debug:
-	valgrind ./futoshiki
+	valgrind ./gale_shapley
 
 clean:
-	rm $(OBJS) futoshiki
+	rm $(OBJS) libshapley.so gale_shapley
