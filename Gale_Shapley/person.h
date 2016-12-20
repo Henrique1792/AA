@@ -10,10 +10,10 @@ class Person{
     char ID;
     bool Married;
     vector <char> priority;
-    vector<char>::iterator  priority_check;
+    vector <char>::iterator  priority_check;
     char Married_With;
     char gender;
- 
+    int purposes;
   public:
    //constructor and destructor
     Person(char ID, char gender);
@@ -21,11 +21,13 @@ class Person{
    //setters
     void set_marriage(bool value);
     void set_priorities(unsigned int people);
+    void set_purposes(int p);
    //getters
     char get_gender(); 
     vector <char> get_priorities();
     char get_id();
     bool  get_mariage();
+    int purposes_made();
 };
 
 

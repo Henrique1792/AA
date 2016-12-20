@@ -11,23 +11,15 @@ Person::Person(char ID, char gender){
 //class destructor
 Person::~Person(){}
 
-//set marriage
+//setters
 void Person::set_marriage(bool value){
   this->Married=value;
 }
 
-//getters
-bool Person::get_mariage(){
-  return this->Married;
+void Person::set_purposes(int p){
+  this->purposes=p;
 }
 
-char Person::get_id(){
-  return this->ID;
-}
-char Person::get_gender(){
-  return this->gender;
-
-}
 void Person::set_priorities(unsigned int people){
   char reading;
   for (this->priority_check=this->priority.begin();
@@ -40,4 +32,20 @@ void Person::set_priorities(unsigned int people){
 }
 vector<char> Person::get_priorities(){
   return this->priority;
+}
+
+//getters
+bool Person::get_mariage(){
+  return this->Married;
+}
+
+char Person::get_id(){
+  return this->ID;
+}
+char Person::get_gender(){
+  return this->gender;
+}
+
+int Person::purposes_made(){
+  return this->purposes;
 }
