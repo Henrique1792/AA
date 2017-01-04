@@ -6,6 +6,7 @@ NODE *newNode(){
   if(rt!=NULL){
     rt->name=NULL;
     rt->color=BLANK;
+    rt->header=BLANK;
     rt->nxt=NULL;
     return rt;
   }
@@ -49,7 +50,7 @@ void printNode(NODE *tgt){
 
 
 void printAllNodes(NODE *start){
-  if(start->color==HEADER) return;
+  if(start->header==HEADER) return;
   printNode(start);
   printAllNodes(start->nxt);
   

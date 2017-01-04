@@ -1,6 +1,8 @@
 #ifndef NODE_H_
 #define NODE_H_
 #include "utils.h"
+#define IsHeader(x) (x==HEADER ? 1:0)
+
 /*
  *Node Structure for
  *each region applied.
@@ -13,6 +15,7 @@
 typedef struct NODE{
   char* name;
   int color;
+  int header;
   struct NODE *nxt;
 }NODE;
 

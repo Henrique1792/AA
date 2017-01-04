@@ -14,7 +14,7 @@
 
 
 typedef struct MAP{
-  NODE **header;
+  NODE **headers;
   int map_size;
   int colors;
   int *nEdges;

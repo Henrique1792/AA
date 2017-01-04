@@ -5,10 +5,10 @@ MAP *newMap(int colors, int map_size){
   MAP *rt=(MAP *)malloc(sizeof(MAP));
   int i;
   if(rt!=NULL){
-    rt->header=(NODE **)malloc(map_size*sizeof(NODE *));
+    rt->headers=(NODE **)malloc(map_size*sizeof(NODE *));
     for(i=0;i<map_size;i++){
-      rt->header[i]=newNode();
-      rt->header[i]->color=HEADER;
+      rt->headers[i]=newNode();
+      rt->headers[i]->header=HEADER;
     }
     rt->colors=colors;
     rt->map_size=map_size;
@@ -26,15 +26,15 @@ void mapStartUp(MAP **tgt, FILE *aux){
   *tgt=newMap(colors, map_size);
   
   for(j=0;j<map_size;j++){
-    (*tgt)->header[j]->name=readLine(aux);
+    (*tgt)->headers[j]->name=readLine(aux);
     (*tgt)->nEdges[j]=readInt(aux);
-    walk=(*tgt)->header[j];
+    walk=(*tgt)->headers[j];
     
     for(i=0;i<(*tgt)->nEdges[j];i++){
       plugNode(walk, readLine(aux));
       walk=walk->nxt;
     }
-    walk->nxt=(*tgt)->header[j];
+    walk->nxt=(*tgt)->headers[j];
   }
   closeFile(aux);
 }
@@ -44,9 +44,9 @@ void printMap(MAP *tgt){
   printf("Map_Size: %d\n Colors: %d\n",tgt->map_size, tgt->colors);  
   for(i=0;i<tgt->map_size;i++){
    printf("HEADER:\n");
-   printNode(tgt->header[i]);
+   printNode(tgt->headers[i]);
      printf("EDGES\n");
-   printAllNodes(tgt->header[i]->nxt);
+   printAllNodes(tgt->headers[i]->nxt);
   }
 }
 
@@ -56,20 +56,27 @@ void freeMap(MAP **tgt){
   NODE *aux=NULL; 
   
   for(i=0;i<((*tgt)->map_size);i++){
-      aux=popNode((*tgt)->header[i]);
-      while(aux->color!=HEADER){
+      aux=popNode((*tgt)->headers[i]);
+      while(!IsHeader(aux->header)){
         freeNode(&aux);
-        aux=popNode((*tgt)->header[i]);
+        aux=popNode((*tgt)->headers[i]);
       };
       freeNode(&aux);
   }
   
   free((*tgt)->nEdges);
-  free((*tgt)->header);
+  free((*tgt)->headers);
   free(*tgt);
 }
 
 void paintRecursive(MAP *tgt, int method){
+  int i;
+  if(method==0){
+    
+    
+  }
+  else if(method==1){}
+  else if(method==2){}
 }
 
 
